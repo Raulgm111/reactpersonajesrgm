@@ -7,6 +7,8 @@ export default class DetallesPersonajes extends Component {
         detallesP:[],
         status:false
     }
+
+    //CARGAMOS LOS PERSONAJES DE LAS SERIES
     cargarPersonajes=()=>{
         var numero=parseInt(this.props.id)
         console.log(numero)
@@ -20,6 +22,9 @@ export default class DetallesPersonajes extends Component {
         })
     }
 
+
+    //LLAMAMOS AL COMPONENETE cargarPersonajes() 
+    //PARA MOSTRALO POR PANTALLA
     componentDidMount=()=>{
         this.cargarPersonajes();
     }
@@ -35,6 +40,7 @@ export default class DetallesPersonajes extends Component {
             </thead>
             <tbody>
                 {
+                    //HACEMOS UN MAP DE LOS PERSONAJES DE CADA SERIE
                     this.state.detallesP.map((per,index)=>{
                         return(<tr>
                             <td>{per.nombre}</td>

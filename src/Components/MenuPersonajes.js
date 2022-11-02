@@ -8,6 +8,7 @@ export default class MenuPersonajes extends Component {
         series:[],
         status:false
     }
+    //CARGAMOS LAS SERIES
     cargarSeries=()=>{
         var request = "api/Series";
         var url=Global.urlPersonajes+request
@@ -19,6 +20,7 @@ export default class MenuPersonajes extends Component {
         })
     }
 
+    //LLAMAMOS AL COMPONENTE PARA MOSTRALO POR PANTALLA
     componentDidMount=()=>{
         this.cargarSeries();
     }
@@ -47,6 +49,7 @@ export default class MenuPersonajes extends Component {
           </a>
           <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
             {
+              //HACEMOS UN MAP PARA INSETAR LAS SERIES EN EL SELECT
                 this.state.status == true &&
                 this.state.series.map((serie,index)=>{
                     return(<li>

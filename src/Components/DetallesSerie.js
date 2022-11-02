@@ -8,6 +8,8 @@ export default class DetallesSerie extends Component {
         detallesS:{},
         status:false
     }
+
+    //CARGAMOS LAS SERIES EN UN COMPONENTE
     cargarSeries=()=>{
         var numero = parseInt(this.props.id)
         var request = "api/Series/"+numero;
@@ -20,10 +22,14 @@ export default class DetallesSerie extends Component {
         })
     }
 
+    //LLAMAMOS AL COMPONENETE cargarSeries() 
+    //PARA MOSTRALO POR PANTALLA
     componentDidMount=()=>{
         this.cargarSeries();
     }
 
+
+    //ACTUALIZAMOS EL COMPONENTE PARA QUE SE MUESTRE POR PANTALLA
     componentDidUpdate=(oldProps)=>{
         if(oldProps.id != this.props.id){
             this.cargarSeries();

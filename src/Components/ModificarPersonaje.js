@@ -13,6 +13,8 @@ export default class ModificarPersonaje extends Component {
         personajes:[],
         status:false
     }
+
+    //CARGAMOS LAS SERIES EN UN COMPONENTE
     cargarSeries=()=>{
         var request = "api/Series";
         var url=Global.urlPersonajes+request
@@ -24,6 +26,8 @@ export default class ModificarPersonaje extends Component {
         })
     }
 
+
+    //CARGAMOS LOS POERSONAJES EN UN COMPONENTE
     cargarPersonajes=()=>{
         var request = "api/Personajes";
         var url=Global.urlPersonajes+request
@@ -35,11 +39,16 @@ export default class ModificarPersonaje extends Component {
         })
     }
 
+    //LLAMAMOS AL COMPONENETE cargarPersonajes() Y cargarSeries()
+    //PARA MOSTRALO POR PANTALLA
     componentDidMount=()=>{
         this.cargarSeries();
         this.cargarPersonajes();
     }
 
+
+    //COGEMOS EL ID DE LA SERIE Y EL PERSONAJE PARA HACER UN
+    //UPDATE PARA MODIFICARLO
     updateSeries=(e)=>{
         e.preventDefault();
         var idSerie = parseInt(this.cajaSerieRef.current.value);
@@ -65,6 +74,8 @@ export default class ModificarPersonaje extends Component {
             <label>Seleccione una serie</label>
             <select ref={this.cajaSerieRef}>
                 {
+                    //HACMEOS UN MAP DE LAS SERIES PARA MOSTRALOS
+                    //EN EL SELECT
                         this.state.series.map((serie,index)=>{
                             return(<option value={serie.idSerie}>
                             {serie.nombre}
@@ -75,6 +86,8 @@ export default class ModificarPersonaje extends Component {
             <label>Seleccione un personaje</label>
             <select ref={this.cajaPersonajeRef}>
             {
+                         //HACMEOS UN MAP DE LOS PERSONAJES PARA MOSTRALOS
+                        //EN EL SELECT
                         this.state.personajes.map((per,index)=>{
                             return(<option value={per.idPersonaje}>
                             {per.nombre}

@@ -12,6 +12,8 @@ export default class NuevoPersonaje extends Component {
         series:[],
         status:false
     }
+
+    //CREAMOS UN COMPONENTE DONDE CARGAMOS LA SERIES
     cargarSeries=()=>{
         var request = "api/Series";
         var url=Global.urlPersonajes+request
@@ -23,10 +25,15 @@ export default class NuevoPersonaje extends Component {
         })
     }
 
+    //LLAMAMOS AL COMPONENETE cargarSeries() 
+    //PARA MOSTRALO POR PANTALLA
     componentDidMount=()=>{
         this.cargarSeries();
     }
 
+
+    //CREMAOS UN METODO INSERT COGIENDO EL VALOR DE LOS ATRIBUTOS 
+    //Y LO INSERTAMOS A LA SERIE SELECCIONADA
     insertarPersonaje = (e)=>{
         e.preventDefault();
         var request = "api/Personajes";
@@ -62,6 +69,7 @@ export default class NuevoPersonaje extends Component {
             <label>Serie: </label>
             <select ref={this.cajaSerieRef}>
                 {
+                    //HACEMOS UN MAP PARA MOSTRAR LAS SERIES EN UN SELECT
                     this.state.series.map((serie,index)=>{
                         return(<option value={serie.idSerie}>
                             {serie.nombre}
