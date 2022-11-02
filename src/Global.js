@@ -1,5 +1,5 @@
 var Global={
-    urlPersonajes:"https://apiseriespersonajes.azurewebsites.net/"
+    urlPersonajes:"https://apiseriespersonajes2022.azurewebsites.net/"
 }
 
 export default Global

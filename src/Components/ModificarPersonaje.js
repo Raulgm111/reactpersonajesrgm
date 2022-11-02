@@ -86,6 +86,7 @@ export default class ModificarPersonaje extends Component {
                 Guardar cambios
             </button>
         </form>
+ 
         <h2 style={{color:"blue"}}>
             {this.state.mensaje}
         </h2>
