@@ -63,6 +63,7 @@ export default class ModificarPersonaje extends Component {
             this.setState({
                 status:true,
                 mensaje:"Personaje modificado!!"
+                
             })
         })
     }
